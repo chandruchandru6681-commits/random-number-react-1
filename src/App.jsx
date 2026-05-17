@@ -14,6 +14,10 @@ class App extends React.Component {
     this.setState({ randomNumber: number });
   };
 
+  clearNumber = () => {
+    this.setState({ randomNumber: null });
+  };
+
   render() {
     return (
       <div className="container">
@@ -23,6 +27,13 @@ class App extends React.Component {
           <button onClick={this.generateRandomNumber}>
             Generate Random Number
           </button>
+          
+
+          {this.state.randomNumber !== null && (
+            <button onClick={this.clearNumber} className="remove-button">
+              Remove Number
+            </button>
+          )}
 
           <div className="result">
             {this.state.randomNumber === null ? (
@@ -34,3 +45,8 @@ class App extends React.Component {
         </div>
       </div>
     );
+  }
+}
+
+export default App
+
